@@ -98,6 +98,7 @@
   <!-- PART 2 will go here (Firebase & Admin scripts) -->
 </head>
 <body>
+  <h2 id="showResult">000</h2>
   <div class="wrap">
     <header class="header">
       <div class="logo" aria-hidden>⭐</div>
@@ -433,7 +434,15 @@
       adminNote.textContent = locked ? 'DB is LOCKED. Admin must use secret URL to unlock.' : 'DB is UNLOCKED. Admin may save results.';
     }
   });
+  <script>
+fetch("result.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("showResult").innerText = data.result;
+  });
+  </script>
 
   </script>
 </body>
 </html>
+
